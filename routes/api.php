@@ -21,16 +21,15 @@ Route::post('/login', [AuthController::class, 'login']);
 | Rutas API protegidas (requieren token Bearer)
 |--------------------------------------------------------------------------
 */
-
+  // --- Proyectos ---
+    Route::get('/proyectos',              [ProyectoController::class, 'index']);
+    Route::get('/proyectos/mejores',      [ProyectoController::class, 'mejores']); 
 Route::middleware('auth:sanctum')->group(function () {
 
     // --- Auth ---
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::get('/user',   [AuthController::class, 'me']);
 
-    // --- Proyectos ---
-    Route::get('/proyectos',              [ProyectoController::class, 'index']);
-    Route::get('/proyectos/mejores',      [ProyectoController::class, 'mejores']); // 👈 MOVER ESTA ARRIBA
     Route::get('/proyectos/{proyecto}',   [ProyectoController::class, 'show']);
     Route::post('/proyectos',             [ProyectoController::class, 'store']);
     Route::put('/proyectos/{proyecto}',   [ProyectoController::class, 'update']);
