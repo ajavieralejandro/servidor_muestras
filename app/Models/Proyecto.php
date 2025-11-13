@@ -16,19 +16,23 @@ class Proyecto extends Model
     ];
 
     protected $casts = [
-        'especialidad_trayecto' => 'array',   // JSON ⇄ array
-        'participantes'         => 'array',   // JSON ⇄ array
+        'especialidad_trayecto' => 'array',
+        'participantes'         => 'array',
     ];
 
-    /** Especialidad / trayecto en una sola línea legible */
     public function especialidadTrayectoLinea(string $sep = ' · '): string
     {
         return collect($this->especialidad_trayecto)->filter()->implode($sep);
     }
 
-    /** Participantes en una sola línea */
     public function participantesLinea(string $sep = ' · '): string
     {
         return collect($this->participantes)->filter()->implode($sep);
+    }
+
+    /** 👇 relación con calificaciones */
+    public function calificaciones()
+    {
+        return $this->hasMany(Calificacion::class);
     }
 }

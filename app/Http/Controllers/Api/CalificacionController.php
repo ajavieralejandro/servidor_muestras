@@ -12,7 +12,7 @@ class CalificacionController extends Controller
     public function __construct()
     {
         // Todas estas rutas se usan con auth:sanctum
-        $this->middleware('auth:sanctum');
+        //$this->middleware('auth:sanctum');
     }
 
     /**
@@ -208,7 +208,7 @@ class CalificacionController extends Controller
         ];
 
         // Combino valores nuevos con los que ya estaban en BD para recalcular promedios
-        $base = $calificacion->toArray();
+        $base   = $calificacion->toArray();
         $merged = array_merge($base, $data);
 
         $totalFg          = $this->promedioDe($merged, $fg);

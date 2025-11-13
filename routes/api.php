@@ -40,6 +40,9 @@ Route::middleware('auth:sanctum')->group(function () {
     // Todas las calificaciones de un proyecto
     Route::get('/proyectos/{proyecto}/calificaciones', [CalificacionController::class, 'index']);
 
+        Route::get('/proyectos/mejores',       [ProyectoController::class, 'mejores']); // 👈 ranking
+
+
     // Calificación del docente logueado
     Route::get('/proyectos/{proyecto}/mi-calificacion', [CalificacionController::class, 'showMine']);
 
