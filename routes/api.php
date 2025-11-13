@@ -30,6 +30,7 @@ Route::middleware('auth:sanctum')->group(function () {
 
     // --- Proyectos ---
     Route::get('/proyectos',              [ProyectoController::class, 'index']);
+    Route::get('/proyectos/mejores',      [ProyectoController::class, 'mejores']); // 👈 MOVER ESTA ARRIBA
     Route::get('/proyectos/{proyecto}',   [ProyectoController::class, 'show']);
     Route::post('/proyectos',             [ProyectoController::class, 'store']);
     Route::put('/proyectos/{proyecto}',   [ProyectoController::class, 'update']);
@@ -39,9 +40,6 @@ Route::middleware('auth:sanctum')->group(function () {
     // --- Calificaciones ---
     // Todas las calificaciones de un proyecto
     Route::get('/proyectos/{proyecto}/calificaciones', [CalificacionController::class, 'index']);
-
-        Route::get('/proyectos/mejores',       [ProyectoController::class, 'mejores']); // 👈 ranking
-
 
     // Calificación del docente logueado
     Route::get('/proyectos/{proyecto}/mi-calificacion', [CalificacionController::class, 'showMine']);
