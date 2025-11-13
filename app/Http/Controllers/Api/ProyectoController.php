@@ -8,11 +8,7 @@ use Illuminate\Http\Request;
 
 class ProyectoController extends Controller
 {
-    public function __construct()
-    {
-        // Todas las rutas de este controlador pasan por auth:sanctum
-        $this->middleware('auth:sanctum');
-    }
+ 
 
     /**
      * GET /api/proyectos
